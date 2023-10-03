@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class HwTask5 {
+public class Hw2Task5 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter your number");
