@@ -1,3 +1,5 @@
+package ua.dymohlo.hw2;
+
 import java.util.Scanner;
 
 public class Hw2Task2 {
