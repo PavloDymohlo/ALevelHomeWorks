@@ -6,6 +6,7 @@ package ua.dymohlo.hw3;
  */
 
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Task3 {
     public static void main(String[] args) {
@@ -17,15 +18,10 @@ public class Task3 {
     }
 
     public static int wordCount(String text) {
-        int counter = 0;
-        if (text.length() != 0) {
-            counter++;
-            for (int i = 0; i < text.length(); i++) {
-                if (text.charAt(i) == ' ') {
-                    counter++;
-                }
-            }
+        if (text == null) {
+            return 0;
         }
-        return counter;
+        text = text.replaceAll("^\\P{L}+|\\P{L}+$", "");
+        return text.isEmpty() ? 0 : text.split("\\P{L}+").length;
     }
 }

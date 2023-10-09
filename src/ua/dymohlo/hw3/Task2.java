@@ -22,7 +22,6 @@ public class Task2 {
     public static String withoutSpaces(String initialText) {
         String text = initialText.replaceAll(" ", "");
         return text;
-        // I think this one line needs to be added to the method "palindrome".
     }
 
     public static boolean palindrome(String line) {
@@ -30,7 +29,7 @@ public class Task2 {
         StringBuilder lineRevers = new StringBuilder(withoutSpaces);
         lineRevers.reverse();
         String change = lineRevers.toString();
-        if (withoutSpaces.equalsIgnoreCase(change) == true) {
+        if (withoutSpaces.equalsIgnoreCase(change)) {
             System.out.println("Your text is a palindrome.");
         } else {
             System.out.println("Your text is not a palindrome.");
