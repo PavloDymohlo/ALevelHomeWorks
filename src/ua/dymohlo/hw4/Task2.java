@@ -24,7 +24,7 @@ public class Task2 {
 
     public static boolean isPrime(int number) {
         boolean prime = true;
-        if (number == 1) {
+        if (number <2) {
             prime = false;
         }
         for (int i = 2; i < number; i++) {
