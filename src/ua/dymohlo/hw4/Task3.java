@@ -24,13 +24,17 @@ public class Task3 {
     }
 
     public static void evenValueToZero(int[] set) {
+        int[] newSet = new int[set.length];
         for (int i = 0; i < set.length; i++) {
-            int validation = set[i] % 2;
+            newSet[i] = set[i];
+        }
+        for (int i = 0; i < newSet.length; i++) {
+            int validation = newSet[i] % 2;
             if (validation == 0) {
-                set[i] = 0;
+                newSet[i] = 0;
             }
         }
         System.out.println("in next line, all even value changed to zero.");
-        System.out.println(Arrays.toString(set));
+        System.out.println(Arrays.toString(newSet));
     }
 }

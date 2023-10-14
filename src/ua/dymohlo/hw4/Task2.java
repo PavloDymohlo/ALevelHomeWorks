@@ -12,7 +12,7 @@ public class Task2 {
     public static void main(String[] args) {
         int[] setNumbers = new int[1000];
         randomNumbers(setNumbers);
-        System.out.println(findPrime(setNumbers) + " primes numbers are in this array.");
+        System.out.println(countPrime(setNumbers) + " primes numbers are in this array.");
     }
 
     public static void randomNumbers(int[] setRandom) {
@@ -24,7 +24,7 @@ public class Task2 {
 
     public static boolean isPrime(int number) {
         boolean prime = true;
-        if (number <2) {
+        if (number < 2) {
             prime = false;
         }
         for (int i = 2; i < number; i++) {
@@ -35,7 +35,7 @@ public class Task2 {
         return prime;
     }
 
-    public static int findPrime(int[] set) {
+    public static int countPrime(int[] set) {
         int counter = 0;
         for (int i = 0; i < set.length; i++) {
             if (isPrime(set[i])) {
