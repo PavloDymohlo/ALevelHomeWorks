@@ -14,7 +14,7 @@ public class Task4 {
     public static void main(String[] args) {
         int[] numbers = new int[5];
         fillArray(numbers);
-        deletingAnElement(numbers);
+        System.out.println(Arrays.toString(deletingAnElement(numbers)));
     }
 
     public static void fillArray(int[] setNumbers) {
@@ -25,7 +25,7 @@ public class Task4 {
         System.out.println(Arrays.toString(setNumbers));
     }
 
-    public static void deletingAnElement(int[] numbers) {
+    public static int[] deletingAnElement(int[] numbers) {
         int delete = 2;// number of th element which need to delete
         int[] shortened = new int[numbers.length - 1];
         int j = 0;
@@ -35,6 +35,6 @@ public class Task4 {
             }
             shortened[j++] = numbers[i];
         }
-        System.out.println(Arrays.toString(shortened));
+        return shortened;
     }
 }

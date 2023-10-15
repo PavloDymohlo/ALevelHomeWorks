@@ -14,7 +14,9 @@ public class Task2 {
         //System.out.println(Arrays.toString(numbers)); // for validation
         int[] numbers = new int[5];
         fillArray(numbers);
-        orderOfNumbers(numbers);
+        String order = (orderOfNumbers(numbers)) ? "The array is sorted in descending order" :
+                "The array is not sorted in descending order";
+        System.out.println(order);
     }
 
     public static void fillArray(int[] setNumbers) {
@@ -31,11 +33,6 @@ public class Task2 {
                 order = false;
                 break;
             }
-        }
-        if (order) {
-            System.out.println("The array is sorted in descending order");
-        } else {
-            System.out.println("The array is not sorted in descending order");
         }
         return order;
     }

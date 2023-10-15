@@ -11,8 +11,7 @@ public class Task3 {
     public static void main(String[] args) {
         int[] setNumbers = new int[2000];
         randomNumbers(setNumbers);
-        evenValueToZero(setNumbers);
-
+        System.out.println("zero instead of even values " + Arrays.toString(evenValueToZero(setNumbers)));
     }
 
     public static void randomNumbers(int[] set) {
@@ -23,7 +22,7 @@ public class Task3 {
         System.out.println("Your 2000 random values: " + Arrays.toString(set));
     }
 
-    public static void evenValueToZero(int[] set) {
+    public static int[] evenValueToZero(int[] set) {
         int[] newSet = new int[set.length];
         for (int i = 0; i < set.length; i++) {
             newSet[i] = set[i];
@@ -34,7 +33,6 @@ public class Task3 {
                 newSet[i] = 0;
             }
         }
-        System.out.println("in next line, all even value changed to zero.");
-        System.out.println(Arrays.toString(newSet));
+        return newSet;
     }
 }

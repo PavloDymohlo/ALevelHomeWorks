@@ -36,7 +36,7 @@ public class Task3 {
         }
     }
 
-    public static void swappingRowsAndColumns(int[][] doubleSet) {
+    public static int[][] swappingRowsAndColumns(int[][] doubleSet) {
         int[][] swapping = new int[doubleSet[0].length][doubleSet.length];
         for (int i = 0; i < doubleSet.length; i++) {
             for (int j = 0; j < doubleSet.length; j++) {
@@ -44,5 +44,6 @@ public class Task3 {
             }
         }
         printArray(swapping);
+        return swapping;
     }
 }

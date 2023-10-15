@@ -29,8 +29,8 @@ public class Task1 {
         double sum = 0;
         for (int i = 0; i < setArithmetic.length; i++) {
             sum += setArithmetic[i];
-            average = sum / setArithmetic.length;
         }
+        average = sum / setArithmetic.length;
         return average;
     }
 
@@ -39,8 +39,8 @@ public class Task1 {
         double multiplication = 1;
         for (int i = 0; i < setGeometric.length; i++) {
             multiplication *= setGeometric[i];
-            average = Math.pow(multiplication, (double) 1 / setGeometric.length);
         }
+        average = Math.pow(multiplication, (double) 1 / setGeometric.length);
         return average;
     }
 }

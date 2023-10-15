@@ -16,13 +16,12 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Task1 {
     public static void main(String[] args) {
         int[][] doubleArray = new int[4][3];
-        fill(doubleArray);
+        fillAndChange(doubleArray);
         System.out.println();
-        changeLine(doubleArray);
         printArray(doubleArray);
     }
 
-    public static void fill(int[][] setNumbers) {
+    public static void fillAndChange(int[][] setNumbers) {
         int fill = 1;
         for (int i = 0; i < setNumbers.length; i++) {
             for (int j = 0; j < setNumbers[i].length; j++) {
@@ -30,21 +29,20 @@ public class Task1 {
             }
             System.out.println(Arrays.toString(setNumbers[i]));
         }
+        int[][] newSetNumbers = new int[setNumbers.length][setNumbers.length];
+        for (int i = 0; i < setNumbers.length; i++) {
+            for (int j = 0; j < setNumbers[i].length; j++) {
+                newSetNumbers[i] = setNumbers[i];
+                if (i % 2 != 0) {
+                    newSetNumbers[i][j] *= (-1);
+                }
+            }
+        }
     }
 
     public static void printArray(int[][] set) {
         for (int i = 0; i < set.length; i++) {
             System.out.println(Arrays.toString(set[i]));
-        }
-    }
-
-    public static void changeLine(int[][] setNumbers) {
-        for (int i = 0; i < setNumbers.length; i++) {
-            for (int j = 0; j < setNumbers[i].length; j++) {
-                if (i % 2 != 0) {
-                    setNumbers[i][j] *= (-1);
-                }
-            }
         }
     }
 }
