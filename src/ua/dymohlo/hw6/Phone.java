@@ -40,12 +40,12 @@ public class Phone {
     }
 
     public static void main(String[] args) {
-        Phone firstPhone = new Phone(101, "Nokia", 192.5);
+        Phone firstPhone = new Phone();
         System.out.println(firstPhone);
         firstPhone.receiveCall("Nokia");
         firstPhone.getNumber(101);
 
-        Phone secondPhone = new Phone(102, "Samsung", 197.3);
+        Phone secondPhone = new Phone(102, "Samsung");
         System.out.println(secondPhone);
         secondPhone.receiveCall("Samsung");
         secondPhone.getNumber(102);
