@@ -19,6 +19,7 @@ public class Task3 {
         fill(doubleArray);
         System.out.println();
         swappingRowsAndColumns(doubleArray);
+        printArray(swappingRowsAndColumns(doubleArray));
     }
 
     public static void fill(int[][] setNumbers) {
@@ -43,7 +44,6 @@ public class Task3 {
                 swapping[j][i] = doubleSet[i][j];
             }
         }
-        printArray(swapping);
         return swapping;
     }
 }

@@ -16,28 +16,22 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Task1 {
     public static void main(String[] args) {
         int[][] doubleArray = new int[4][3];
-        fillAndChange(doubleArray);
-        System.out.println();
-        printArray(doubleArray);
+        printArray(fillAndChange(doubleArray));
+
     }
 
-    public static void fillAndChange(int[][] setNumbers) {
+    public static int[][] fillAndChange(int[][] setNumbers) {
         int fill = 1;
+        int[][] newSetNumbers = new int[setNumbers.length][setNumbers[0].length];
         for (int i = 0; i < setNumbers.length; i++) {
             for (int j = 0; j < setNumbers[i].length; j++) {
-                setNumbers[i][j] = fill++;
-            }
-            System.out.println(Arrays.toString(setNumbers[i]));
-        }
-        int[][] newSetNumbers = new int[setNumbers.length][setNumbers.length];
-        for (int i = 0; i < setNumbers.length; i++) {
-            for (int j = 0; j < setNumbers[i].length; j++) {
-                newSetNumbers[i] = setNumbers[i];
+                newSetNumbers[i][j] = fill++;
                 if (i % 2 != 0) {
                     newSetNumbers[i][j] *= (-1);
                 }
             }
         }
+        return newSetNumbers;
     }
 
     public static void printArray(int[][] set) {
