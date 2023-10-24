@@ -41,11 +41,15 @@ public class Phone {
 
     public static void main(String[] args) {
         Phone firstPhone = new Phone();
+        firstPhone.number = 101;
+        firstPhone.model = "Nokia";
+        firstPhone.weight = 234;
         System.out.println(firstPhone);
         firstPhone.receiveCall("Nokia");
         firstPhone.getNumber(101);
 
         Phone secondPhone = new Phone(102, "Samsung");
+        secondPhone.weight = 154;
         System.out.println(secondPhone);
         secondPhone.receiveCall("Samsung");
         secondPhone.getNumber(102);
