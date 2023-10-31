@@ -1,24 +1,40 @@
 package ua.dymohlo.hw8.alltask;
+
 /*
+Task1:
+- Створити класс з двома private змінними;
+- Змінні ініціалізувати через конструктор;
+- Створити два public метода для відображення значення змінних.
+
+Task2:
 - Створити 3 об'єкти Animal, знайти того , у кого найбільший hoursOfSleeping і вивести те, що він їсть.
+
+Task3:
+- Створити спадкоємця з 3 методами;
+- Один з методів зробити final;
+- Один з методів перевизначити;
+- Ініціалізувати змінні через конструктор.
 */
 public class Main {
     public static void main(String[] args) {
         //task1
-        Sleep people = new Sleep(5, 9);
-        people.hours();
-        people.sleep();
+        System.out.println("Task1");
+        SleepAndWork people = new SleepAndWork(5, 12);
+        people.setSleep(7);
+        people.setWorkHours(10);
 
         System.out.println();
         //task3
+        System.out.println("Task3");
         Barbos barbos = new Barbos("Barbos", " big fish", 10);
         System.out.println(barbos.getName());
-        barbos.setKindOFood();
-        barbos.getHoursOfSleeping();
+        barbos.setHoursOfSleeping(10);
+        System.out.println(barbos.getKindOFood());
 
         System.out.println();
 
         //task2
+        System.out.println("Task2");
         Animal dog = new Animal("bone", 5);
         Animal cat = new Animal("fish", 8);
         Animal mouse = new Animal("cheese", 9);
@@ -32,6 +48,7 @@ public class Main {
             System.out.println("The animal that sleeps the longest is mouse and its favorite food is " + mouse.getKindOFood());
         }
     }
+
     public static Animal whoSleepsMore(Animal dog, Animal cat, Animal mouse) {
         Animal whoSleeping = dog.getHoursOfSleeping() > cat.getHoursOfSleeping() ? dog.getHoursOfSleeping() >
                 mouse.getHoursOfSleeping() ? dog :

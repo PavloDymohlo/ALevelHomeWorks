@@ -1,4 +1,11 @@
 package ua.dymohlo.hw8.alltask;
+/*
+Task3:
+- Створити спадкоємця з 3 методами;
+- Один з методів зробити final;
+- Один з методів перевизначити;
+- Ініціалізувати змінні через конструктор.
+*/
 
 public class Dog {
     private String name;
@@ -15,11 +22,23 @@ public class Dog {
         return name;
     }
 
-    public  void setKindOFood() {
-        System.out.println(kindOFood);
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public final void getHoursOfSleeping() {
-        System.out.println("all dogs sleep "+hoursOfSleeping+" on day.");
+    public String getKindOFood() {
+        return kindOFood;
+    }
+
+    public void setKindOFood(String kindOFood) {
+        this.kindOFood = kindOFood;
+    }
+
+    public int getHoursOfSleeping() {
+        return hoursOfSleeping;
+    }
+
+    public void setHoursOfSleeping(int hoursOfSleeping) {
+        this.hoursOfSleeping = hoursOfSleeping;
     }
 }

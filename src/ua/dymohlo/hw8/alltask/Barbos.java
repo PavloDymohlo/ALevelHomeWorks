@@ -1,4 +1,5 @@
 package ua.dymohlo.hw8.alltask;
+
 public class Barbos extends Dog {
 
     public Barbos(String name, String kindOFood, int hoursOfSleeping) {
@@ -7,7 +8,12 @@ public class Barbos extends Dog {
     }
 
     @Override
-    public void setKindOFood() {
-        System.out.println("i like fish");
+    public String getKindOFood() {
+        return "Barbos likes fish.";
+    }
+
+    @Override
+    public final void setHoursOfSleeping(int hoursOfSleeping) {
+        System.out.println("Barbos sleeps 10 hours.");
     }
 }

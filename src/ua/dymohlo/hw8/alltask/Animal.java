@@ -1,4 +1,8 @@
 package ua.dymohlo.hw8.alltask;
+
+/*Task2:
+- Створити 3 об'єкти Animal, знайти того , у кого найбільший hoursOfSleeping і вивести те, що він їсть.
+ */
 public class Animal {
     private String kindOFood;
     private int hoursOfSleeping;
