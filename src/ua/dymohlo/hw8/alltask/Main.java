@@ -17,24 +17,20 @@ Task3:
 */
 public class Main {
     public static void main(String[] args) {
-        //task1
-        System.out.println("Task1");
+        sleepAndWork();
+        System.out.println();
+        sleepAndEat();
+        System.out.println();
+        dogHeir();
+    }
+
+    private static void sleepAndWork() {
         SleepAndWork people = new SleepAndWork(5, 12);
         people.setSleep(7);
         people.setWorkHours(10);
+    }
 
-        System.out.println();
-        //task3
-        System.out.println("Task3");
-        Barbos barbos = new Barbos("Barbos", " big fish", 10);
-        System.out.println(barbos.getName());
-        barbos.setHoursOfSleeping(10);
-        System.out.println(barbos.getKindOFood());
-
-        System.out.println();
-
-        //task2
-        System.out.println("Task2");
+    private static void sleepAndEat() {
         Animal dog = new Animal("bone", 5);
         Animal cat = new Animal("fish", 8);
         Animal mouse = new Animal("cheese", 9);
@@ -49,10 +45,17 @@ public class Main {
         }
     }
 
-    public static Animal whoSleepsMore(Animal dog, Animal cat, Animal mouse) {
+    private static Animal whoSleepsMore(Animal dog, Animal cat, Animal mouse) {
         Animal whoSleeping = dog.getHoursOfSleeping() > cat.getHoursOfSleeping() ? dog.getHoursOfSleeping() >
                 mouse.getHoursOfSleeping() ? dog :
                 mouse : cat.getHoursOfSleeping() > mouse.getHoursOfSleeping() ? cat : mouse;
         return whoSleeping;
+    }
+
+    private static void dogHeir() {
+        Barbos barbos = new Barbos("Barbos", " big fish", 10);
+        System.out.println(barbos.getName());
+        barbos.setHoursOfSleeping();
+        System.out.println(barbos.getKindOFood());
     }
 }

@@ -11,9 +11,4 @@ public class Barbos extends Dog {
     public String getKindOFood() {
         return "Barbos likes fish.";
     }
-
-    @Override
-    public final void setHoursOfSleeping(int hoursOfSleeping) {
-        System.out.println("Barbos sleeps 10 hours.");
-    }
 }

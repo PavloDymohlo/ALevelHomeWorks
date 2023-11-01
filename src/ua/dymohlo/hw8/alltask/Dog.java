@@ -38,7 +38,7 @@ public class Dog {
         return hoursOfSleeping;
     }
 
-    public void setHoursOfSleeping(int hoursOfSleeping) {
-        this.hoursOfSleeping = hoursOfSleeping;
+    public final void setHoursOfSleeping() {
+        System.out.println(8);
     }
 }
