@@ -53,7 +53,7 @@ public class Main {
     }
 
     private static void dogHeir() {
-        Barbos barbos = new Barbos("Barbos", " big fish", 10);
+        Barbos barbos = new Barbos();
         System.out.println(barbos.getName());
         barbos.setHoursOfSleeping();
         System.out.println(barbos.getKindOFood());

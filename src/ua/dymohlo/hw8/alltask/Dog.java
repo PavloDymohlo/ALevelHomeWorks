@@ -13,9 +13,12 @@ public class Dog {
     private int hoursOfSleeping;
 
     public Dog(String name, String kindOFood, int hoursOfSleeping) {
-        this.name = name;
+        this.name = "Rex";
         this.kindOFood = "Meat";
         this.hoursOfSleeping = 8;
+    }
+
+    public Dog() {
     }
 
     public String getName() {

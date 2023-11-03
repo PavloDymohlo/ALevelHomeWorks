@@ -2,9 +2,13 @@ package ua.dymohlo.hw8.alltask;
 
 public class Barbos extends Dog {
 
-    public Barbos(String name, String kindOFood, int hoursOfSleeping) {
+    private String name = "Barbos";
+    private String kindOFood = "fish";
+    private int hoursOfSleeping = 10;
 
-        super(name, kindOFood, hoursOfSleeping);
+    @Override
+    public String getName() {
+        return "Barbos";
     }
 
     @Override
