@@ -7,9 +7,15 @@ Class Triangle has to has 3 overloading area methods :
 */
 
 public class Triangle extends Figure {
-    double sideA = 2;
-    double sideB = 2;
-    double sideC = 3;
+    private double sideA;
+    private double sideB;
+    private double sideC;
+
+    public Triangle(double sideA, double sideB, double sideC) {
+        this.sideA = sideA;
+        this.sideB = sideB;
+        this.sideC = sideC;
+    }
 
     @Override
     public double perimeter() {
@@ -19,7 +25,8 @@ public class Triangle extends Figure {
 
     @Override
     public double area() {
-        return 0.25 * Math.sqrt((sideA + sideB + sideC) * (sideB + sideC - sideA) * (sideA + sideC - sideB) * (sideA + sideB - sideC));
+        double halfPerimeter = perimeter() / 2;
+        return Math.sqrt(halfPerimeter * (halfPerimeter - sideA) * (halfPerimeter - sideB) * (halfPerimeter - sideC));
     }
 
     public double area(double sideA, double sideB, double sin) {

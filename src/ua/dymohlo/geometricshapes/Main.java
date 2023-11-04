@@ -10,12 +10,12 @@ double area();
 	area using a base height product
 */
 
+
 public class Main {
     public static void main(String[] args) {
-        Triangle triangle = new Triangle();
-        Figure circle = new Circle();
-        Figure square = new Square();
-        Circle circle1 = new Circle();
+        Triangle triangle = new Triangle(2, 2, 3);
+        Figure circle = new Circle(8.5);
+        Figure square = new Square(2);
         System.out.println("Perimeter of a circle is " + (circle.perimeter()));
         System.out.println("Area of a circle is " + (circle.area()));
         System.out.println("Perimeter of a square is " + (square.perimeter()));

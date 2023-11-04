@@ -1,15 +1,20 @@
 package ua.dymohlo.geometricshapes;
 
 public class Circle extends Figure {
-    double rad = 8.5;
+    private double rad;
+
+    public Circle(double rad) {
+        this.rad = rad;
+    }
 
     @Override
     public double perimeter() {
-        return 2 * 3.14 * rad;
+
+        return Math.PI * 2 * rad;
     }
 
     @Override
     public double area() {
-        return 3.14 * (Math.pow(rad, 2));
+        return Math.PI * (Math.pow(rad, 2));
     }
 }

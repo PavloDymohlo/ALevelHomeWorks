@@ -1,7 +1,11 @@
 package ua.dymohlo.geometricshapes;
 
 public class Square extends Figure {
-    double squareSide = 5;
+    private double squareSide;
+
+    public Square(double squareSide) {
+        this.squareSide = squareSide;
+    }
 
     @Override
     public double perimeter() {
