@@ -29,11 +29,11 @@ public class Triangle extends Figure {
         return Math.sqrt(halfPerimeter * (halfPerimeter - sideA) * (halfPerimeter - sideB) * (halfPerimeter - sideC));
     }
 
-    public double area(double sideA, double sideB, double sin) {
-        return 0.5 * sideA * sideB * sin;
+    public double area(double sin) {
+        return 0.5 * (sideA * sideB * sin);
     }
 
-    public double area(double sideA, double height) {
+    public double area(float height) {
         return 0.5 * sideA * height;
     }
 }
