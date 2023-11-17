@@ -11,7 +11,6 @@ public class Main {
         squareParametersValidityCheck();
         circleParametersValidityCheck();
         triangleParametersValidityCheck();
-
     }
 
     private static void squareParametersValidityCheck() {
@@ -61,16 +60,17 @@ public class Main {
         double sideB = inputValue(scan, "Enter the length of side B:", "Such a triangle does not exist!");
         double sideC = inputValue(scan, "Enter the length of side C:", "Such a triangle does not exist!");
         double sin = inputValue(scan, "Enter the sine of the angle between the sides A and B: ", "The sine of the angle cannot be zero or have a negative value!");
-        double height = inputValue(scan, "Enter the height of the triangle: ", "The height of the triangle must be greater than zero!");
+        float height = (float) inputValue(scan, "Enter the height of the triangle: ", "The height of the triangle must be greater than zero!");
 
-        Triangle triangle = new Triangle(sideA, sideB, sideC, sin);
-        Triangle triangle2 = new Triangle(sideA, sideB, sideC, sin);
-        Triangle triangle3 = new Triangle(sideA, height);
+        Triangle triangle = new Triangle(sideA, sideB, sideC);
+        double twoSidesAndTheAngle = triangle.area(sin);
+        double baseHeightProduct = triangle.area(height);
         System.out.println("Perimeter of a triangle is " + (triangle.perimeter()));
         System.out.println("Area of a triangle found by Heron's formula is " + (triangle.area()));
-        System.out.println("Area of a triangle found by the product of two sides and the angle between them is " + (triangle2.areaTwoSidesAndAngle()));
-        System.out.println("Area of a triangle found by a base height product is " + (triangle3.areaBaseAndHeight()));
+        System.out.println("Area of a triangle found by the product of two sides and the angle between them is " + twoSidesAndTheAngle);
+        System.out.println("Area of a triangle found by a base height product is " + baseHeightProduct);
     }
+
 
     private static double inputValue(Scanner scan, String task, String errorText) {
         try {
