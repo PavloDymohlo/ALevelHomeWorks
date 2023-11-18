@@ -9,10 +9,11 @@ import java.util.Objects;
 public class ArrayList<T> {
     private Object[] array;
     private int size;
+    private int count = 0;
 
-    public ArrayList() {
-        this.size = 0;
-        this.array = new Object[10];
+    public ArrayList(int size) {
+        this.size = size;
+        this.array = new Object[size];
     }
 
     @Override
@@ -24,23 +25,23 @@ public class ArrayList<T> {
     }
 
     void add(T element) {
-        if (size == array.length) {
-            reserveArray();
-        }
-        array[size++] = element;
+        reserveArray();
+        array[count++] = element;
     }
 
     private void reserveArray() {
-        Object[] newArray = new Object[size * 2];
-        System.arraycopy(array, 0, newArray, 0, size);
-        array = newArray;
+        if(count >= size){
+            Object[] newArray = new Object[array.length+1];
+            System.arraycopy(array,0,newArray,0,size);
+            array = newArray;
+        }
     }
 
     void add(T element, int index) {
-        Objects.checkIndex(index, size + 1);
+        Objects.checkIndex(index,size+1);
         reserveArray();
-        System.arraycopy(array, index, array, index + 1, size - index);
-        array[index] = element;
+        System.arraycopy(array, index, array, index+1, size-index);
+         array[index] = element;
         size++;
     }
 

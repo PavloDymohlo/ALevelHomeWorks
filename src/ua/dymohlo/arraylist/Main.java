@@ -5,8 +5,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        ArrayList<Integer> list = new ArrayList<>();
-        arrayFilling(list, scan);
+        System.out.println("enter numbers of element");
+        int size = scan.nextInt();
+        ArrayList<Integer> list = new ArrayList<>(size);
+        arrayFilling(list, scan, size);
         arrayFillingByIndex(list, scan);
         elementIndex(list, scan);
         isContains(list, scan);
@@ -14,11 +16,10 @@ public class Main {
         removeElement(list, scan);
     }
 
-    private static void arrayFilling(ArrayList<Integer> list, Scanner scan) {
-        System.out.println("Enter the number of elements you want to add: ");
-        int element = scan.nextInt();
-        System.out.println("Enter " + element + " numbers by a space");
-        while (element-- > 0) {
+    private static void arrayFilling(ArrayList<Integer> list, Scanner scan, int size) {
+        //System.out.println("fill your array ");
+        System.out.println("Enter " + size + " numbers by a space");
+        while (size-- > 0) {
             list.add(scan.nextInt());
         }
         System.out.println(list);
