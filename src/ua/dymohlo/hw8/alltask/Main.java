@@ -1,5 +1,7 @@
 package ua.dymohlo.hw8.alltask;
 
+import java.util.Arrays;
+
 /*
 Task1:
 - Створити класс з двома private змінними;
@@ -22,6 +24,7 @@ public class Main {
         sleepAndEat();
         System.out.println();
         dogHeir();
+        System.out.println();
     }
 
     private static void sleepAndWork() {
@@ -30,25 +33,33 @@ public class Main {
         people.setWorkHours(10);
     }
 
+
     private static void sleepAndEat() {
-        Animal dog = new Animal("bone", 5);
+        Animal dog = new Animal("bone", 3);
         Animal cat = new Animal("fish", 8);
         Animal mouse = new Animal("cheese", 9);
-        if (whoSleepsMore(dog, cat, mouse) == dog) {
+        Animal[] animals = {dog, cat, mouse};
+
+        if (whoSleepsMore(animals) == dog) {
             System.out.println("The animal that sleeps the longest is dog and its favorite food is " + dog.getKindOFood());
         }
-        if (whoSleepsMore(dog, cat, mouse) == cat) {
+        if (whoSleepsMore(animals) == cat) {
             System.out.println("The animal that sleeps the longest is cat and its favorite food is " + cat.getKindOFood());
         }
-        if (whoSleepsMore(dog, cat, mouse) == mouse) {
+        if (whoSleepsMore(animals) == mouse) {
             System.out.println("The animal that sleeps the longest is mouse and its favorite food is " + mouse.getKindOFood());
         }
     }
 
-    private static Animal whoSleepsMore(Animal dog, Animal cat, Animal mouse) {
-        Animal whoSleeping = dog.getHoursOfSleeping() > cat.getHoursOfSleeping() ? dog.getHoursOfSleeping() >
-                mouse.getHoursOfSleeping() ? dog :
-                mouse : cat.getHoursOfSleeping() > mouse.getHoursOfSleeping() ? cat : mouse;
+    private static Animal whoSleepsMore(Animal[] animals) {
+        Animal whoSleeping = new Animal();
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < animals.length; i++) {
+            if (animals[i].getHoursOfSleeping() > max) {
+                max = animals[i].getHoursOfSleeping();
+                whoSleeping = animals[i];
+            }
+        }
         return whoSleeping;
     }
 
@@ -58,4 +69,5 @@ public class Main {
         barbos.setHoursOfSleeping();
         System.out.println(barbos.getKindOFood());
     }
+
 }

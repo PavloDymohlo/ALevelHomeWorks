@@ -7,7 +7,7 @@ Task3:
 - Ініціалізувати змінні через конструктор.
 */
 
-public class Dog {
+public class Dog extends Animal {
     private String name;
     private String kindOFood;
     private int hoursOfSleeping;

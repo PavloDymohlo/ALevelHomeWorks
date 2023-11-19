@@ -12,6 +12,9 @@ public class Animal {
         this.hoursOfSleeping = hoursOfSleeping;
     }
 
+    public Animal() {
+    }
+
     public String getKindOFood() {
         return kindOFood;
     }
