@@ -25,17 +25,6 @@ public class Employees {
     public int getAge() {
         return age;
     }
-
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
-
     @Override
     public String toString() {
         return name + " " + secondName + "- salary is:  " + salary + ", age is: " + age;
