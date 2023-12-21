@@ -1,4 +1,4 @@
-package main.java.ua.dymohlo.jdbcpractic;
+package ua.dymohlo.jdbcpractic;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
