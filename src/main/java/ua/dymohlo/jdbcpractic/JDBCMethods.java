@@ -1,14 +1,28 @@
 package ua.dymohlo.jdbcpractic;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Scanner;
 
 public class JDBCMethods {
+
+    public static String input(String message) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println(message);
+        return scan.nextLine();
+    }
+
     public static void insertIntoTableContact() {
         try (Connection connection = ConnectionManager.getConnection()) {
-            String newMailContact = "INSERT INTO alevelgraduates.contact(contact, contact_type) VALUES ('snowSecond@gmail.com', 'mail')";
-            PreparedStatement preparedStatement = connection.prepareStatement(newMailContact);
-            preparedStatement.executeUpdate();
-            System.out.println(preparedStatement);
+            String query = "INSERT INTO alevelgraduates.contact(contact, contact_type) VALUES (?,?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            System.out.println("Next you will add data to the table 'contact'");
+            preparedStatement.setString(1, input("Enter new contact"));
+            preparedStatement.setString(2, input("Enter new contact_type"));
+            int result = preparedStatement.executeUpdate();
+            System.out.println(result);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -16,10 +30,13 @@ public class JDBCMethods {
 
     public static void createNewPersonInTableEmployee() {
         try (Connection connection = ConnectionManager.getConnection()) {
-            String createNewPerson = "INSERT INTO alevelgraduates.employee(first_name, lust_name, contact_id) VALUES ('Savitar','God',30)";
-            PreparedStatement preparedStatement = connection.prepareStatement(createNewPerson);
-            preparedStatement.executeUpdate();
-            System.out.println(createNewPerson);
+            String query = "INSERT INTO alevelgraduates.employee(first_name, lust_name) VALUES (?,?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            System.out.println("Next you will add data to the table 'employee'");
+            preparedStatement.setString(1, input("Enter first name"));
+            preparedStatement.setString(2, input("enter last name"));
+            int result = preparedStatement.executeUpdate();
+            System.out.println(result);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -42,8 +59,8 @@ public class JDBCMethods {
     }
 
     public static void deleteFromTableContact() {
+        int searchId = Integer.parseInt(input("Enter the id of user you want to delete from the table 'contact'"));
         try (Connection connection = ConnectionManager.getConnection()) {
-            int searchId = 2;
             String selectEmployee = "SELECT * FROM alevelgraduates.contact WHERE id = " + searchId;
             try (PreparedStatement selectStatement = connection.prepareStatement(selectEmployee)) {
                 ResultSet resultSet = selectStatement.executeQuery();
@@ -58,8 +75,9 @@ public class JDBCMethods {
                     return;
                 }
             }
-            String deleteEmployee = "DELETE FROM alevelgraduates.contact WHERE id = " + searchId;
-            try (PreparedStatement preparedStatement = connection.prepareStatement(deleteEmployee)) {
+            String query = "DELETE FROM alevelgraduates.contact WHERE id = ?";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                preparedStatement.setInt(1, searchId);
                 preparedStatement.executeUpdate();
                 System.out.println("Employee with ID" + searchId + " deleted successfully");
             }
@@ -71,7 +89,7 @@ public class JDBCMethods {
 
     public static void deleteFromTableEmployee() {
         try (Connection connection = ConnectionManager.getConnection()) {
-            int searchId = 2;
+            int searchId = Integer.parseInt(input("Enter the id of user you want to delete from the table 'employee'"));
             String selectEmployee = "SELECT * FROM alevelgraduates.employee WHERE id = " + searchId;
             try (PreparedStatement selectStatement = connection.prepareStatement(selectEmployee)) {
                 ResultSet resultSet = selectStatement.executeQuery();
@@ -99,7 +117,7 @@ public class JDBCMethods {
 
     public static void deleteFromTableOrder3() {
         try (Connection connection = ConnectionManager.getConnection()) {
-            int searchId = 36;
+            int searchId = Integer.parseInt(input("Enter the id of user you want to delete from the table 'order3'"));
             String selectEmployee = "SELECT * FROM alevelgraduates.orders3 WHERE id = " + searchId;
             try (PreparedStatement selectStatement = connection.prepareStatement(selectEmployee)) {
                 ResultSet resultSet = selectStatement.executeQuery();
