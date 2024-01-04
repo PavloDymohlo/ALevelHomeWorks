@@ -59,10 +59,13 @@ public class JDBCMethods {
     }
 
     public static void deleteFromTableContact() {
-        int searchId = Integer.parseInt(input("Enter the id of user you want to delete from the table 'contact'"));
+        int searchId = Integer.parseInt(input("Enter the id of the user you want to delete from the table 'contact'"));
+
         try (Connection connection = ConnectionManager.getConnection()) {
-            String selectEmployee = "SELECT * FROM alevelgraduates.contact WHERE id = " + searchId;
-            try (PreparedStatement selectStatement = connection.prepareStatement(selectEmployee)) {
+            String SQLquery = "SELECT * FROM alevelgraduates.contact WHERE id = ?";
+
+            try (PreparedStatement selectStatement = connection.prepareStatement(SQLquery)) {
+                selectStatement.setInt(1, searchId);
                 ResultSet resultSet = selectStatement.executeQuery();
 
                 if (resultSet.next()) {
@@ -75,11 +78,12 @@ public class JDBCMethods {
                     return;
                 }
             }
+
             String query = "DELETE FROM alevelgraduates.contact WHERE id = ?";
             try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
                 preparedStatement.setInt(1, searchId);
                 preparedStatement.executeUpdate();
-                System.out.println("Employee with ID" + searchId + " deleted successfully");
+                System.out.println("Employee with ID " + searchId + " deleted successfully");
             }
 
         } catch (SQLException e) {
@@ -90,8 +94,9 @@ public class JDBCMethods {
     public static void deleteFromTableEmployee() {
         try (Connection connection = ConnectionManager.getConnection()) {
             int searchId = Integer.parseInt(input("Enter the id of user you want to delete from the table 'employee'"));
-            String selectEmployee = "SELECT * FROM alevelgraduates.employee WHERE id = " + searchId;
+            String selectEmployee = "SELECT * FROM alevelgraduates.employee WHERE id = ?";
             try (PreparedStatement selectStatement = connection.prepareStatement(selectEmployee)) {
+                selectStatement.setLong(1, searchId);
                 ResultSet resultSet = selectStatement.executeQuery();
 
                 if (resultSet.next()) {
@@ -104,8 +109,9 @@ public class JDBCMethods {
                     return;
                 }
             }
-            String deleteEmployee = "DELETE FROM alevelgraduates.employee WHERE id = " + searchId;
+            String deleteEmployee = "DELETE FROM alevelgraduates.employee WHERE id = ?";
             try (PreparedStatement preparedStatement = connection.prepareStatement(deleteEmployee)) {
+                preparedStatement.setLong(1, searchId);
                 preparedStatement.executeUpdate();
                 System.out.println("Employee with ID" + searchId + " deleted successfully");
             }
@@ -118,8 +124,9 @@ public class JDBCMethods {
     public static void deleteFromTableOrder3() {
         try (Connection connection = ConnectionManager.getConnection()) {
             int searchId = Integer.parseInt(input("Enter the id of user you want to delete from the table 'order3'"));
-            String selectEmployee = "SELECT * FROM alevelgraduates.orders3 WHERE id = " + searchId;
+            String selectEmployee = "SELECT * FROM alevelgraduates.orders3 WHERE id = ?";
             try (PreparedStatement selectStatement = connection.prepareStatement(selectEmployee)) {
+                selectStatement.setLong(1, searchId);
                 ResultSet resultSet = selectStatement.executeQuery();
 
                 if (resultSet.next()) {
@@ -133,8 +140,9 @@ public class JDBCMethods {
                     return;
                 }
             }
-            String deleteEmployee = "DELETE FROM alevelgraduates.orders3 WHERE id = " + searchId;
+            String deleteEmployee = "DELETE FROM alevelgraduates.orders3 WHERE id = ?";
             try (PreparedStatement preparedStatement = connection.prepareStatement(deleteEmployee)) {
+                preparedStatement.setLong(1, searchId);
                 preparedStatement.executeUpdate();
                 System.out.println("Employee with ID" + searchId + " deleted successfully");
             }
