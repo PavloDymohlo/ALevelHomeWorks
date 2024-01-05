@@ -30,7 +30,7 @@ public class Student {
     }
 
     private void passExamSuccessfully() {
-        this.examScore = 100;
+        this.examScore = 200;
     }
 
     public String getFirstName() {

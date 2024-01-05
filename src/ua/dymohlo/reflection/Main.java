@@ -46,10 +46,11 @@ public void printFields(Object obj) - використовуючи рефлек�
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 public class Main {
     public static void main(String[] args) throws IllegalAccessException, NoSuchFieldException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException {
-        Student student = new Student("Mykola", "Raskolnikov", 23, 100);
+        Student student = new Student("Best", "Student", 23, 100);
         StudentInfoPrinter studentInfoPrinter = new StudentInfoPrinter();
         String result = studentInfoPrinter.printStudentInfo(student);
         System.out.println(result);
@@ -59,12 +60,19 @@ public class Main {
         examScore.setAccessible(true);
         int firstExamScore = examScore.getInt(student);
         System.out.println("First student's examScore is " + firstExamScore);
-        examScore.set(student, 200);
-        System.out.println("Second student's examScore is " + student.getExamScore());
+        Method passExamSuccessfully = studentClass.getDeclaredMethod("passExamSuccessfully");
+        passExamSuccessfully.setAccessible(true);
+        passExamSuccessfully.invoke(student);
+        Field newExamScore = studentClass.getDeclaredField("examScore");
+        newExamScore.setAccessible(true);
+        int secondExamScore = newExamScore.getInt(student);
+        System.out.println("Second student's examScore is " + secondExamScore);
 
         System.out.println("---");
 
         PersonFactory person = new PersonFactory();
-        person.printFields(person);
+        person.personPrintFields(person);
+
+
     }
 }
