@@ -1,6 +1,7 @@
 package ua.dymohlo.dao;
 
 
+import java.util.Optional;
 import java.util.Scanner;
 
 public class Main {
@@ -23,19 +24,19 @@ public class Main {
         System.out.println(user);
 
         //read jdbcUserDao
-        User readUser = jdbcUserDao.findById(Long.valueOf(input("enter the id of the user whose data you want to see: ")));
+        Optional<User> readUser = jdbcUserDao.findById(Long.valueOf(input("enter the id of the user whose data you want to see: ")));
         System.out.println(readUser);
 
         //read HibernateUserDao
-        User readHibernateUser = hibernateUserDao.findById(Long.valueOf(input("enter the id of the user whose data you want to see: ")));
+        Optional<User> readHibernateUser = hibernateUserDao.findById(Long.valueOf(input("enter the id of the user whose data you want to see: ")));
         System.out.println(readHibernateUser);
 
         //update jdbcUserDao
-        User update = jdbcUserDao.update(Long.valueOf(input("enter the id of the user whose data you want to change: ")));
+        Optional<User> update = jdbcUserDao.update(JDBCUser);
         System.out.println(update);
 
         //update HibernateUserDao
-        User updateUser = hibernateUserDao.update(Long.valueOf(input("enter the id of the user whose data you want to change: ")));
+        Optional<User> updateUser = hibernateUserDao.update(user);
         System.out.println(updateUser);
 
         //delete jdbcUserDao

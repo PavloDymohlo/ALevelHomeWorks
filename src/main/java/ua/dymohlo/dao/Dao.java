@@ -1,11 +1,13 @@
 package ua.dymohlo.dao;
 
+import java.util.Optional;
+
 public interface Dao<T> {
     T create(T entity);
 
-    T findById(Long id);
+    Optional<User> findById(Long id);
 
-    T update(Long id);
+    Optional<User> update(T entity);
 
     void deleteById(Long id);
 }
