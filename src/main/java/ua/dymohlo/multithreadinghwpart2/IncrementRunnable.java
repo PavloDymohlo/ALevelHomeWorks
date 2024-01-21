@@ -1,10 +1,11 @@
-package ua.dymohlo.multithreadinghwpart1;
+package ua.dymohlo.multithreadinghwpart2;
 
-public class ThreadImplementsInterface implements Runnable{
+public class IncrementRunnable implements Runnable{
+    public static int counter = 0;
     @Override
     public void run() {
-        while (true){
-            System.out.println("Hello, A-Level from Interface");
+        for(int i=0; i<10;i++){
+            counter++;
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {

@@ -1,6 +1,6 @@
 package ua.dymohlo.multithreadinghwpart1;
 
-public class ThreadExtendsClass extends Thread{
+public class MyThread extends Thread{
     @Override
     public void run(){
         while (true){

@@ -2,7 +2,7 @@ package ua.dymohlo.multithreadinghwpart2;
 
 public class Main {
     public static void main(String[] args) {
-        Thread thread = new Thread(new Counter());
+        Thread thread = new Thread(new IncrementRunnable());
         thread.start();
 
         try {
@@ -10,6 +10,6 @@ public class Main {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        System.out.println(Counter.counter);
+        System.out.println(IncrementRunnable.counter);
     }
 }
