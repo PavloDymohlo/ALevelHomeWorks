@@ -1,0 +1,28 @@
+Структура GET-запиту: 
+- використовується для отримання даних;
+- GET-запит виконується шляхом надсилання запиту на сервер із використанням HTTP-методу GET 
+- запит не має тіла, тому всі дані відправляються через Заголовок.
+- GET-запит повинен бути безпечним та іденпотентичним
+Структура POST-запиту: 
+- використовується для передачі даних;
+- Дані передаються в тілі запиту;
+- Формат даних може визначатись за допомогою Заголовків Content-Type(наприклад: application/x-www-form-urlencoded);
+- всі дані передаються в тілі запиту, тому вони не відображаються в URL
+- POST-запити можуть впливати на стан сервера та не завжди ідемпотентні 
+
+Приклад POST запиту з JSON тілом: 
+Створюємо нового користувача на сервері, і відправляємо POST-запит із таким JSON тілом:
+{
+  "username": "new user name",
+  "email": "user's email address",
+  "password": "user's password"
+}
+Це JSON тіло буде включено до POST-запиту і відправлене на сервер, де його можна обробити для створення нового користувача з вказаними даними.
+
+Інформація після надсилання GET-запиту на  адресу https://dummyjson.com/products/1:
+C:\Users\DELL>curl https://dummyjson.com/products/1
+{"id":1,"title":"iPhone 9","description":"An apple mobile which is nothing like apple","price":549,"discountPercentage":
+12.96,"rating":4.69,"stock":94,"brand":"Apple","category":
+"smartphones","thumbnail":"https://cdn.dummyjson.com/product-images/1/thumbnail.jpg","images":
+["https://cdn.dummyjson.com/product-images/1/1.jpg","https://cdn.dummyjson.com/product-images/1/2.jpg",
+"https://cdn.dummyjson.com/product-images/1/3.jpg","https://cdn.dummyjson.com/product-images/1/4.jpg","https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"]}
