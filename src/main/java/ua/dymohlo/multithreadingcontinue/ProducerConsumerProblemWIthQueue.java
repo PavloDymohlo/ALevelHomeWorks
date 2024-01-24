@@ -3,10 +3,9 @@ package ua.dymohlo.multithreadingcontinue;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.TimeUnit;
 
 public class ProducerConsumerProblemWIthQueue {
-    public static final BlockingQueue<Integer> buffer = new ArrayBlockingQueue<>(10);
+    public static final BlockingQueue<Integer> buffer = new ArrayBlockingQueue<>(5);
 
     public static void problemWIthQueue() {
         Thread producer = new Thread(() -> {
@@ -36,13 +35,14 @@ public class ProducerConsumerProblemWIthQueue {
     }
 
     private static void consumer() {
-        Integer poll;
+        Integer take;
         try {
-            poll = buffer.poll(1, TimeUnit.MILLISECONDS);
+            take = buffer.take();
+            System.out.println("Consumer " + take);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("Consumer " + poll);
     }
+
 
 }
