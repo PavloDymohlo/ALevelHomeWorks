@@ -1,0 +1,6 @@
+[Milk has quantity: 2, at the price per piece: 1.5, Eggs has quantity: 10, at the price per piece: 0.2, Cucumbers has quantity: 5, at the price per piece: 0.8, Bread has quantity: 1, at the price per piece: 1.0, Cheese has quantity: 3, at the price per piece: 2.5, Apples has quantity: 6, at the price per piece: 1.2, Chicken has quantity: 2, at the price per piece: 5.0]
+[Eggs has quantity: 10, at the price per piece: 0.2, Cucumbers has quantity: 5, at the price per piece: 0.8, Apples has quantity: 6, at the price per piece: 1.2]
+29
+1.2
+[Chicken has quantity: 2, at the price per piece: 5.0, Cheese has quantity: 3, at the price per piece: 2.5, Milk has quantity: 2, at the price per piece: 1.5, Apples has quantity: 6, at the price per piece: 1.2, Bread has quantity: 1, at the price per piece: 1.0, Cucumbers has quantity: 5, at the price per piece: 0.8, Eggs has quantity: 10, at the price per piece: 0.2]
+1006.3

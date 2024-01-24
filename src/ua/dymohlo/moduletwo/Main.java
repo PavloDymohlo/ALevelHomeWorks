@@ -96,7 +96,7 @@ public class Main {
     }
 
     private static void outPutInFile(File file) {
-        File fileOut = new File("C:\\Users\\DELL\\IdeaProjects\\HomeWorks\\src\\ua\\dymohlo\\moduletwo\\finalFile.txt");
+        File fileOut = new File("C:\\Users\\DELL\\IdeaProjects\\HomeWorks\\src\\ua\\dymohlo\\moduletwo\\finalList.txt");
 
         try (RandomAccessFile randomAccessFile = new RandomAccessFile(fileOut, "rw")) {
             fileOut.createNewFile();
