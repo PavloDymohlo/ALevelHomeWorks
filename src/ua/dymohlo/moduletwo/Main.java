@@ -26,9 +26,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         File fileIn = new File("C:\\Users\\DELL\\IdeaProjects\\HomeWorks\\src\\ua\\dymohlo\\moduletwo\\baseList");
-        fileIn.createNewFile();
+        try {
+            fileIn.createNewFile();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         System.out.println("our groceries list: " + groceriesList(fileIn));
         System.out.println("filtered groceries: " + moreThanNeedParameter(groceriesList(fileIn)));
@@ -40,26 +44,31 @@ public class Main {
         outPutInFile(fileIn);
     }
 
-    private static List<Groceries> groceriesList(File file) throws IOException {
+    private static List<Groceries> groceriesList(File file) {
         List<Groceries> groceriesList = new ArrayList<>();
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
 
-        String line;
-        while ((line = randomAccessFile.readLine()) != null) {
-            String[] ourLine = line.split("\\|");
+        try (RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw")) {
+            String line;
 
-            if (ourLine.length == 3) {
-                String productName = ourLine[0].trim();
-                int numberOfProduct = Integer.parseInt(ourLine[1].trim());
-                double productPrice = Double.parseDouble(ourLine[2].trim());
+            while ((line = randomAccessFile.readLine()) != null) {
+                String[] ourLine = line.split("\\|");
 
-                Groceries groceries = new Groceries(productName, numberOfProduct, productPrice);
-                groceriesList.add(groceries);
+                if (ourLine.length == 3) {
+                    String productName = ourLine[0].trim();
+                    int numberOfProduct = Integer.parseInt(ourLine[1].trim());
+                    double productPrice = Double.parseDouble(ourLine[2].trim());
+
+                    Groceries groceries = new Groceries(productName, numberOfProduct, productPrice);
+                    groceriesList.add(groceries);
+                }
             }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-        randomAccessFile.close();
+
         return groceriesList;
     }
+
 
     private static List<Groceries> moreThanNeedParameter(List<Groceries> list) {
         return list.stream().filter(l -> l.getNumberOfProduct() > 3).collect(Collectors.toList());
@@ -86,17 +95,21 @@ public class Main {
         return (double) Math.round((totalPrice * totalNumbersOfGroceries) * 100) / 100;
     }
 
-    private static void outPutInFile(File file) throws IOException {
-        File fileOut = new File("C:\\Users\\DELL\\IdeaProjects\\HomeWorks\\src\\ua\\dymohlo\\moduletwo\\finalFile");
-        fileOut.createNewFile();
+    private static void outPutInFile(File file) {
+        File fileOut = new File("C:\\Users\\DELL\\IdeaProjects\\HomeWorks\\src\\ua\\dymohlo\\moduletwo\\finalFile.txt");
 
-        RandomAccessFile randomAccessFile = new RandomAccessFile(fileOut, "rw");
-        randomAccessFile.writeBytes(groceriesList(file).toString() + "\n");
-        randomAccessFile.writeBytes(moreThanNeedParameter(groceriesList(file)).toString() + "\n");
-        randomAccessFile.writeBytes(totalNumbersOfGroceries(groceriesList(file)) + "\n");
-        randomAccessFile.writeBytes(averagePrice(groceriesList(file)) + "\n");
-        randomAccessFile.writeBytes(descendingSorting(groceriesList(file)).toString() + "\n");
-        randomAccessFile.writeBytes(String.valueOf(totalGroceriesPrice(groceriesList(file))));
-        randomAccessFile.close();
+        try (RandomAccessFile randomAccessFile = new RandomAccessFile(fileOut, "rw")) {
+            fileOut.createNewFile();
+
+            randomAccessFile.writeBytes(groceriesList(file).toString() + "\n");
+            randomAccessFile.writeBytes(moreThanNeedParameter(groceriesList(file)).toString() + "\n");
+            randomAccessFile.writeBytes(totalNumbersOfGroceries(groceriesList(file)) + "\n");
+            randomAccessFile.writeBytes(averagePrice(groceriesList(file)) + "\n");
+            randomAccessFile.writeBytes(descendingSorting(groceriesList(file)).toString() + "\n");
+            randomAccessFile.writeBytes(String.valueOf(totalGroceriesPrice(groceriesList(file))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
+
 }

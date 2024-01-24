@@ -2,9 +2,9 @@ package ua.dymohlo.moduletwo;
 
 public class Groceries {
 
-    String productName;
-    int numberOfProduct;
-    double productPrice;
+    private String productName;
+    private int numberOfProduct;
+    private double productPrice;
 
     public Groceries(String productName, int numberOfProduct, double productPrice) {
         this.productName = productName;
